@@ -1,9 +1,20 @@
+from flask import Flask,jsonify
+from flask_cors import CORS
+
+#configuration
+DEBUG = True
+
 #initialize flask project 
-from flask import Flask
 app = Flask(__name__)
+app.config.from_object(__name__)
 
-@app.route('/')
+#enable cors
+CORS(app,resources={r'/*': {'origin': '*'}})
+
+@app.route('/ping',method=['GET'])
 def index():
-    return 'hello there, this is my first website building with flask'
+    return jsonify('pong')
 
+if __name__ == '__main__':
+    app.run()
 
