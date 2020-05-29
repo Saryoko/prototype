@@ -1,5 +1,5 @@
 #initialize flask project 
-import flask from Flask
+from flask import Flask
 app = flask(__name__)
 
 @app.route('/')
